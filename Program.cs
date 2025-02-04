@@ -1,4 +1,6 @@
-﻿namespace PJT2502041
+﻿using System.ComponentModel.Design;
+
+namespace PJT2502041
 {
     internal class Program
     {
@@ -9,30 +11,70 @@
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            int[] numbers = new int[52];
-            int pickCount = 8;
-            Random random = new Random();
+            string[] numbers = new string[52];
+            //int pickCount = 8;
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = i + 1;
+                if (i >= 0 && i < 13)
+                {
+                    if (i % 13 == 0) numbers[i] = "♥A";
+                    else if (i % 13 == 10) numbers[i] = "♥J";
+                    else if (i % 13 == 11) numbers[i] = "♥Q";
+                    else if (i % 13 == 12) numbers[i] = "♥K";
+                    else numbers[i] = "♥" + (i % 13 + 1).ToString();
+                }
+                else if (i >= 13 && i < 26)
+                {
+                    if (i % 13 == 0) numbers[i] = "◆A";
+                    else if (i % 13 == 10) numbers[i] = "◆J";
+                    else if (i % 13 == 11) numbers[i] = "◆Q";
+                    else if (i % 13 == 12) numbers[i] = "◆K";
+                    else numbers[i] = "◆" + (i % 13 + 1).ToString();
+                }
+                else if (i >= 26 && i < 39)
+                {
+                    if (i % 13 == 0) numbers[i] = "♣A";
+                    else if (i % 13 == 10) numbers[i] = "♣J";
+                    else if (i % 13 == 11) numbers[i] = "♣Q";
+                    else if (i % 13 == 12) numbers[i] = "♣K";
+                    else numbers[i] = "♣" + (i % 13 + 1).ToString();
+                }
+                else
+                {
+                    if (i % 13 == 0) numbers[i] = "♠A";
+                    else if (i % 13 == 10) numbers[i] = "♠J";
+                    else if (i % 13 == 11) numbers[i] = "♠Q";
+                    else if (i % 13 == 12) numbers[i] = "♠K";
+                    else numbers[i] = "♠" + (i % 13 + 1).ToString();
+                }
             }
 
-            // 0 ~ pickCount-1 index 값을 무작위 인덱스 값이랑 교체
-            for (int i = 0; i < pickCount; i++)
-            {
-                int randomIndex = random.Next(1, 52);
-                int tempNum = numbers[i];
-                numbers[i] = numbers[randomIndex];
-                numbers[randomIndex] = tempNum;
-            }
-
-            // 0 ~ pickCount-1 index 값을 출력
-            Console.Write("선택된 랜덤 숫자 : ");
-            for (int i = 0; i < pickCount; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
                 Console.Write(numbers[i] + " ");
+                if (i % 13 == 12)
+                {
+                    Console.WriteLine();
+                }
             }
-            Console.WriteLine();
+
+            //Random random = new Random();
+
+            // 0 ~ pickCount-1 index 값을 무작위 인덱스 값이랑 교체
+            //for (int i = 0; i < pickCount; i++)
+            //{
+            //    int randomIndex = random.Next(0, numbers.Length);
+            //    int tempNum = numbers[i];
+            //    numbers[i] = numbers[randomIndex];
+            //    numbers[randomIndex] = tempNum;
+            //}
+            // => random.Shuffle(numbers);
+
+            // 0 ~ pickCount-1 index 값을 출력
+            //Console.Write("선택된 랜덤 숫자 : ");
         }
+
+        // 나머지 값 구하는 것을 통해 0(+1) ~ 7(+1) 사이의 값을 구할 수 있음
+        // Console.WriteLine(random.Next() % 8 + 1);
     }
 }
