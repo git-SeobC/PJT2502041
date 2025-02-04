@@ -9,49 +9,115 @@ namespace PJT2502041
         /// 해당 문제는 트럼프 카드를 생각하고, 배열 자체를 셔플 후 8개 뽑기한다고 생각
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+
+        static string[] MakeCard()
         {
-            string[] numbers = new string[52];
-            //int pickCount = 8;
-            for (int i = 0; i < numbers.Length; i++)
+            string[] card = new string[52];
+            for (int i = 0; i < card.Length; i++)
             {
                 if (i >= 0 && i < 13)
                 {
-                    if (i % 13 == 0) numbers[i] = "♥A";
-                    else if (i % 13 == 10) numbers[i] = "♥J";
-                    else if (i % 13 == 11) numbers[i] = "♥Q";
-                    else if (i % 13 == 12) numbers[i] = "♥K";
-                    else numbers[i] = "♥" + (i % 13 + 1).ToString();
+                    if (i % 13 == 0)
+                    {
+                        card[i] = "♥A";
+                    }
+                    else if (i % 13 == 10)
+                    {
+                        card[i] = "♥J";
+                    }
+                    else if (i % 13 == 11)
+                    {
+                        card[i] = "♥Q";
+                    }
+                    else if (i % 13 == 12)
+                    {
+                        card[i] = "♥K";
+                    }
+                    else
+                    {
+                        card[i] = "♥" + (i % 13 + 1).ToString();
+                    }
                 }
                 else if (i >= 13 && i < 26)
                 {
-                    if (i % 13 == 0) numbers[i] = "◆A";
-                    else if (i % 13 == 10) numbers[i] = "◆J";
-                    else if (i % 13 == 11) numbers[i] = "◆Q";
-                    else if (i % 13 == 12) numbers[i] = "◆K";
-                    else numbers[i] = "◆" + (i % 13 + 1).ToString();
+                    if (i % 13 == 0)
+                    {
+                        card[i] = "◆A";
+                    }
+                    else if (i % 13 == 10)
+                    {
+                        card[i] = "◆J";
+                    }
+                    else if (i % 13 == 11)
+                    {
+                        card[i] = "◆Q";
+                    }
+                    else if (i % 13 == 12)
+                    {
+                        card[i] = "◆K";
+                    }
+                    else
+                    {
+                        card[i] = "◆" + (i % 13 + 1).ToString();
+                    }
                 }
                 else if (i >= 26 && i < 39)
                 {
-                    if (i % 13 == 0) numbers[i] = "♣A";
-                    else if (i % 13 == 10) numbers[i] = "♣J";
-                    else if (i % 13 == 11) numbers[i] = "♣Q";
-                    else if (i % 13 == 12) numbers[i] = "♣K";
-                    else numbers[i] = "♣" + (i % 13 + 1).ToString();
+                    if (i % 13 == 0)
+                    {
+                        card[i] = "♣A";
+                    }
+                    else if (i % 13 == 10)
+                    {
+                        card[i] = "♣J";
+                    }
+                    else if (i % 13 == 11)
+                    {
+                        card[i] = "♣Q";
+                    }
+                    else if (i % 13 == 12)
+                    {
+                        card[i] = "♣K";
+                    }
+                    else
+                    {
+                        card[i] = "♣" + (i % 13 + 1).ToString();
+                    }
                 }
                 else
                 {
-                    if (i % 13 == 0) numbers[i] = "♠A";
-                    else if (i % 13 == 10) numbers[i] = "♠J";
-                    else if (i % 13 == 11) numbers[i] = "♠Q";
-                    else if (i % 13 == 12) numbers[i] = "♠K";
-                    else numbers[i] = "♠" + (i % 13 + 1).ToString();
+                    if (i % 13 == 0)
+                    {
+                        card[i] = "♠A";
+                    }
+                    else if (i % 13 == 10)
+                    {
+                        card[i] = "♠J";
+                    }
+                    else if (i % 13 == 11)
+                    {
+                        card[i] = "♠Q";
+                    }
+                    else if (i % 13 == 12)
+                    {
+                        card[i] = "♠K";
+                    }
+                    else
+                    {
+                        card[i] = "♠" + (i % 13 + 1).ToString();
+                    }
                 }
             }
+            return card;
+        }
+        
+        static void Main(string[] args)
+        {
+            string[] card = MakeCard();
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < card.Length; i++)
             {
-                Console.Write(numbers[i] + " ");
+                Console.Write(card[i] + " ");
                 if (i % 13 == 12)
                 {
                     Console.WriteLine();
